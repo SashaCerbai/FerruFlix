@@ -2,16 +2,13 @@ const app = Vue.createApp({
 
     mounted() {
         console.log("mounted")
-        fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=1')
-            .then(response => response.json())
-            .then(data => this.items = data.results)
-
+        this.loadPage()
     },
     data() {
         return {
             items: [],
             date: new Date,
-            count: 2
+            count: 1
         }
     },
 
@@ -26,12 +23,35 @@ const app = Vue.createApp({
         loadPage() {
             fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=${this.count}`)
                 .then(response => response.json())
-                .then(data => this.items = data.results)
+                .then(data => {
+                    this.items = [...this.items, ...data.results]
+                })
             this.count++
+        },
+
+        starsYes(number) {
+
+            number = number / 2
+            return Math.round(number)
+
+        },
+
+        starsNo(number) {
+
+            number = number / 2
+            let noRound = 5 - Math.round(number)
+
+            return noRound
+
         }
+
+
+
     },
     computed: {
 
+
     },
+
 
 })

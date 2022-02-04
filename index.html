@@ -18,21 +18,22 @@
         <h1>FerruFlix</h1><br><br>
         <div class="card-container">
             <div class="row">
-                <div class="col-sm " v-for="(item, index) in items" :key="index">
+                <div class="col-sm " v-for="(item, index) in items" :key="item.id">
                     <div class="card">
                         <center><img :src="'https://image.tmdb.org/t/p/w185' + item.poster_path" alt="film">
-
-                            <a class="color-circle" :href='"/pages/pagInfo.html?id="+item.id' target="_blank" title="Go to Info">info</a>
+                            <a class="color-circle" :href='"/pages/pagInfo.html?id="+item.id' title="Go to Info"><i class="fas fa-info"></i>nfo</a>
                         </center>
                         <div class="card-body">
                             <h2 class="card-title">{{item.title}}
                                 <br><i>{{convertDate(item.release_date)}}</i>
                             </h2>
-                            <p class="card-text">{{item.overview}} <br>
+                            <p class="card-text">
                                 <p v-if="item.adult==true" style="color: grey;">Adult Only</p>
                                 <p v-else="item.adult" style="color: cyan;">For all ages</p>
-                                <p v-if="item.vote_average>=7" style="color: green;">Votes: {{item.vote_average}}</p>
-                                <p v-else="item.vote_average" style="color: red;">Votes: {{item.vote_average}}</p>
+                                <div id="parent">
+                                    <div class="childStar" v-for="(star, index) in starsYes(item.vote_average)" :key="index"><i class="fas fa-star"></i></div>
+                                    <div class="childStar" v-for="(starz, index) in starsNo(item.vote_average)" :key="index"><i class="far fa-star"></i></div>
+                                </div>
                             </p>
                         </div>
                     </div><br>
@@ -43,6 +44,7 @@
         <button class="button" @click="loadPage">Load More
         </button>
         <p style="text-align: center;">{{data}}</p>
+
 
     </div>
 
