@@ -2,7 +2,7 @@ const app = Vue.createApp({
 
 
     mounted() {
-        const id = new URLSearchParams(location.search).get("id");
+
         const idA = new URLSearchParams(location.search).get("idA");
         fetch(`http://api.themoviedb.org/3/person/${idA}?api_key=6f9286d54de4891ea7a5c91779e09786`)
             .then(response => response.json())
@@ -12,6 +12,7 @@ const app = Vue.createApp({
     data() {
         return {
             item: {},
+            id: new URLSearchParams(location.search).get("id")
         }
     },
 

@@ -23,12 +23,13 @@
                     </div>
                     <div class="col">
                         <div class="card2">
-                            <p>Title: {{item.title}}</p>
+                            <p><b>{{item.title}}</b></p>
+                            <p><a class="a2" :href='item.homepage' target="_blank">HomePage</a></p>
                             <p>Overview: {{item.overview}}</p>
                             <p v-if="item.adult==false"><i class="fas fa-universal-access" style="color: green"></i> For all age</p>
                             <p v-if="item.adult==true"><i class="fas fa-universal-access" style="color: red"></i> For all age</p>
                             <p v-if="item.original_language=='en'">Original language: English</p>
-                            <p>Original title: {{item.original_title}}</p>
+                            <p>Original title: &nbsp{{item.original_title}}</p>
                             <p>Popularity: {{item.popularity}} people</p>
                             <p>Release date: {{convertDate(item.release_date)}}</p>
                             <p class="child2">Genres:
@@ -45,6 +46,16 @@
                                 <!--per ora-->
                                 <img class="imgAct" :src="'https://image.tmdb.org/t/p/w185' + actor.profile_path" alt="film">
                                 <a class="a2" :href='"pagActors.html?id="+item.id+"&idA="+actor.id'>{{actor.name}}</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card3">
+                            <p>Related Films:</p>
+                            <p class="child2" v-for="(film, index) in films" :key="films.id" v-show="index<6">
+                                <!--per ora-->
+                                <img class="imgAct" :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="film">
+                                <a class="a2" :href='"pagInfo.html?id="+film.id'>{{film.title}}</a>
                             </p>
                         </div>
                     </div>

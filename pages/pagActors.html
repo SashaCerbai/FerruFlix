@@ -15,26 +15,32 @@
     <div id="app">
         <div class="nav-bar"></div>
         <h1>FerruFlix</h1><br><br>
-        <div class="card-container2">
-            <div class="row">
-                <div class="col">
-                </div>
-                <div class="col">
-                    <div class="card2">
-                        <p>Title: {{item.name}}</p>
-                        <p>Overview: </p>
-
-                        <a class="color-circle" :href='"pagInfo.html?id="+item.id'><i class="fas fa-backward"></i></a>
+        <center>
+            <div class="card-container2">
+                <div class="row">
+                    <div class="col">
+                        <img class="imgMag" :src="'https://image.tmdb.org/t/p/w185' + item.profile_path" alt="film">
                     </div>
-                </div>
-                </center>
-            </div>
+                    <div class="col">
+                        <div class="card4">
+                            <p><b>{{item.name}}</b></p>
+                            <p>Birthday: {{convertDate(item.birthday)}}</p>
+                            <p>Born in: {{item.place_of_birth}}</p>
+                            <p>Biography:
+                                <p>{{item.biography}}</p>
+                            </p>
 
-            <script src="/javascript/actor.js"></script>
+                            <a class="color-circle" :href='"pagInfo.html?id="+id'><i class="fas fa-backward"></i></a>
+                        </div>
+                    </div>
+        </center>
+        </div>
 
-            <script>
-                const mountedApp = app.mount('#app')
-            </script>
+        <script src="/javascript/actor.js"></script>
+
+        <script>
+            const mountedApp = app.mount('#app')
+        </script>
 </body>
 
 </html>

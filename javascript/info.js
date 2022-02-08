@@ -9,12 +9,16 @@ const app = Vue.createApp({
         fetch(`https://api.themoviedb.org/3/movie/${id}/casts?api_key=6f9286d54de4891ea7a5c91779e09786`)
             .then(response => response.json())
             .then(data => this.actors = data.cast)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=6f9286d54de4891ea7a5c91779e09786`)
+            .then(response => response.json())
+            .then(data => this.films = data.results)
 
     },
     data() {
         return {
             item: {},
-            actors: []
+            actors: [],
+            films: []
         }
     },
 

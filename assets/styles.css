@@ -74,6 +74,13 @@ img {
     border: 1px solid #f55a33;
 }
 
+.card4 {
+    width: 1000px;
+    height: 1000px;
+    background-color: #ffef9e;
+    border: 1px solid #f55a33;
+}
+
 .imgMag {
     width: 400px;
     height: 600px;
