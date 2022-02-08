@@ -35,22 +35,25 @@
                                 <p class="child2" v-for="(genre, index) in item.genres" :key="index">&nbsp{{genre.name}}
                                 </p>
                             </p>
-                            <a class="color-circle" :href='"/index.html?id="+item.id'><i class="fas fa-backward"></i></a>
+                            <a class="color-circle" href="/index.html"><i class="fas fa-backward"></i></a>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card2">
-                            <p>Actors</p>
-                            <p v-for="()">{{}}</p>
+                        <div class="card3">
+                            <p>Actors:</p>
+                            <p class="child2" v-for="(actor, index) in actors" :key="actors.id" v-show="index<6">
+                                <!--per ora-->
+                                <img class="imgAct" :src="'https://image.tmdb.org/t/p/w185' + actor.profile_path" alt="film">
+                                <a class="a2" :href='"pagActors.html?id="+item.id+"&idA="+actor.id'>{{actor.name}}</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </center>
-        <p style="text-align: center;">{{data}}</p>
     </div>
 
-    <script src="/detail.js"></script>
+    <script src="/javascript/info.js"></script>
 
     <script>
         const mountedApp = app.mount('#app')

@@ -61,8 +61,15 @@ img {
 }
 
 .card2 {
-    width: 450px;
-    height: 600px;
+    width: 800px;
+    height: 700px;
+    background-color: #ffef9e;
+    border: 1px solid #f55a33;
+}
+
+.card3 {
+    width: 950px;
+    height: 700px;
     background-color: #ffef9e;
     border: 1px solid #f55a33;
 }
@@ -70,6 +77,12 @@ img {
 .imgMag {
     width: 400px;
     height: 600px;
+    margin-top: 0px;
+}
+
+.imgAct {
+    width: 120px;
+    height: 150px;
     margin-top: 0px;
 }
 
@@ -204,6 +217,10 @@ ul {
 
 
 /*Links*/
+
+.a2 {
+    background-color: #ed9b42;
+}
 
 a {
     background-color: #f55a33;
