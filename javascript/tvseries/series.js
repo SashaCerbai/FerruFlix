@@ -8,7 +8,7 @@ const app = Vue.createApp({
         return {
             items: [],
             count: 1,
-            language: ""
+            language: new URLSearchParams(location.search).get("lng")
         }
     },
 
@@ -21,18 +21,13 @@ const app = Vue.createApp({
         },
 
         loadPage() {
-            fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=${this.count}&language=${this.language}`)
+            const language = new URLSearchParams(location.search).get("lng");
+            fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=${this.count}&language=${this.language}`)
                 .then(response => response.json())
                 .then(data => {
                     this.items = [...this.items, ...data.results]
                 })
             this.count++
-        },
-
-        loadLanguage() {
-            fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=${this.count}&language=${this.language}`)
-                .then(response => response.json())
-                .then(data => this.items = data.results)
         },
 
         starsYes(number) {
@@ -49,8 +44,10 @@ const app = Vue.createApp({
 
             return noRound
 
+        },
+        goBack() {
+            history.back()
         }
-
 
 
 
