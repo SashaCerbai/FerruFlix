@@ -4,7 +4,7 @@ const app = Vue.createApp({
     mounted() {
         const language = new URLSearchParams(location.search).get("lng");
         const idA = new URLSearchParams(location.search).get("idA");
-        fetch(`http://api.themoviedb.org/3/person/${idA}?api_key=6f9286d54de4891ea7a5c91779e09786&language=${this.language}`)
+        fetch(`https://api.themoviedb.org/3/person/${idA}?api_key=6f9286d54de4891ea7a5c91779e09786&language=${this.language}`)
             .then(response => response.json())
             .then(data => this.item = data)
 

@@ -32,7 +32,7 @@
                                 <p>{{item.biography}}</p>
                             </p>
 
-                            <a class="color-circle" :href='"pagInfoTv.html?id="+id+"&lng="+language'><i class="fas fa-backward"></i></a>
+                            <a class="color-circle" @click='goBack()'><i class="fas fa-backward"></i></a>
                         </div>
                     </div>
         </center>

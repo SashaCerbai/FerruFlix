@@ -8,7 +8,9 @@ const app = Vue.createApp({
         return {
             items: [],
             count: 1,
-            language: ""
+            language: "",
+            search: "",
+            searchList: []
         }
     },
 
@@ -33,6 +35,12 @@ const app = Vue.createApp({
             fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=6f9286d54de4891ea7a5c91779e09786&page=${this.count}&language=${this.language}`)
                 .then(response => response.json())
                 .then(data => this.items = data.results)
+        },
+
+        loadSearch() {
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=6f9286d54de4891ea7a5c91779e09786&language=${this.language}&query=${this.search}`)
+                .then(response => response.json())
+                .then(data => this.searchList = data.results)
         },
 
         starsYes(number) {
