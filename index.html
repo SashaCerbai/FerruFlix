@@ -33,9 +33,9 @@
 
         <input class="form-select button child2" type="search" placeholder="Search..." v-model.lazy="search" @change="loadSearch">
         <div v-for="(list, index) in searchList" :key="list.id">
-            <a class="a2" :href='"/pages/movies/pagInfoMovie.html?id="+list.id+"&idA="+"&lng="+language' v-if='list.media_type=="movie"'>{{list.title}}</a>
-            <a class="a2" :href='"/pages/tvseries/pagInfoTv.html?id="+list.id+"&lng="+language' v-else-if='list.media_type="tv"'>{{list.name}}</a>
-            <a class="a2" :href='"/pages/movies/pagInfoMovie.html?idA="+list.id+"&lng="+language' v-else-if='list.media_type="person"'>{{list.name}}</a>
+            <a class="a2" :href='"/pages/movies/pagInfoMovie.html?id="+list.id+"&lng="+language' v-if='list.media_type=="movie"'>{{list.title}}</a>
+            <a class="a2" :href='"/pages/tvseries/pagInfoTv.html?id="+list.id+"&lng="+language' v-else-if='list.media_type=="tv"'>{{list.name}}</a>
+            <a class="a2" :href='"/pages/movies/pagActorsMovie.html?idA="+list.id+"&lng="+language' v-else-if='list.media_type=="person"'>{{list.name}}</a>
         </div>
         <br><br>
         <div class="card-container">
